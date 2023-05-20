@@ -19,11 +19,11 @@ galleryEL.insertAdjacentHTML("afterbegin", addImg);
 galleryEL.addEventListener('click', oneGalleryImgClick );
 
 function oneGalleryImgClick (evt){
-    const imageSelected = evt.target.getAttribute("data-source");
+  evt.preventDefault();
+  
+  const imageSelected = evt.target.nodeName;
    
-    evt.preventDefault();
-   
-    if (!imageSelected){return;}
+    if (!imageSelected !== 'IMG'){return;}
     
     const openModulWindow = basicLightbox.create(
         `<img src="${imageSelected}" width="800" height="600">`,
