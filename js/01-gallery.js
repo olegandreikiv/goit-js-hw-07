@@ -23,10 +23,10 @@ function oneGalleryImgClick (evt){
   
   const imageSelected = evt.target.nodeName;
    
-    if (!imageSelected !== 'IMG'){return;}
+    if (imageSelected !== 'IMG'){return;}
     
-    const openModulWindow = basicLightbox.create(
-        `<img src="${imageSelected}" width="800" height="600">`,
+  const openModulWindow = basicLightbox.create(
+    `<img src="${evt.target.dataset.source}" width="800" height="600">`,
       {
        
         onShow: () => {document.addEventListener("keydown", closeModal);},
